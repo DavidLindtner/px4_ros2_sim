@@ -7,7 +7,7 @@ install/
 log/
 build/
 
-# Ignore generated docs
+# Ignore generated documents
 *.dox
 *.wikidoc
 
