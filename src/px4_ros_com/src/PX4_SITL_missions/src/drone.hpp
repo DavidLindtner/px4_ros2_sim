@@ -73,36 +73,36 @@ void Drone::flight_mode_timer_callback()
 		this->setFlightMode(FlightMode::mOffboard);
 	}
 
-	if (offboard_setpoint_counter_ == 15)
+	if (offboard_setpoint_counter_ == 20)
 	{
 		this->arm();
 	}
 
-	if (offboard_setpoint_counter_ < 450)
+	if (offboard_setpoint_counter_ < 200)
 	{
 		this->publish_offboard_control_mode();
 		this->publish_trajectory_setpoint2(0.0, 0.0, -5.0, -1.6);
 	}
-/*
-	if (offboard_setpoint_counter_ < 100 && offboard_setpoint_counter_ > 50)
+
+	if (offboard_setpoint_counter_ < 300 && offboard_setpoint_counter_ > 200)
 	{
 		this->publish_offboard_control_mode();
 		this->publish_trajectory_setpoint2(20, 0.0, -5.0, 0);
 	}
 
-	if (offboard_setpoint_counter_ < 150 && offboard_setpoint_counter_ > 100) 
+	if (offboard_setpoint_counter_ < 400 && offboard_setpoint_counter_ > 300) 
 	{
 		this->publish_offboard_control_mode();
 		this->publish_trajectory_setpoint2(20, 20, -5.0, 1.6);
 	}
 
-	if (offboard_setpoint_counter_ > 150) 
+	if (offboard_setpoint_counter_ < 500 && offboard_setpoint_counter_ > 400) 
 	{
 		this->publish_offboard_control_mode();
 		this->publish_trajectory_setpoint2(0, 20, -5.0, 3.14);
-	}*/
+	}
 
-	if (offboard_setpoint_counter_ == 300)
+	if (offboard_setpoint_counter_ == 500)
 	{
 		this->setFlightMode(FlightMode::mLand);
 	}
