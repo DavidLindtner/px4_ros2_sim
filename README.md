@@ -22,10 +22,10 @@ colcon build
 ```
 or
 ```bash
-colcon build --packages-select px4_ros_com
+colcon build --packages-select px4_missions
 ```
 
 To run ROS2 mission
 ```bash
-ros2 run px4_ros_com droneMission
+ros2 run px4_missions simpleMission
 ```

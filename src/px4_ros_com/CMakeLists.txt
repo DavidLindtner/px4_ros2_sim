@@ -97,7 +97,7 @@ custom_executable(examples/listeners sensor_combined_listener)
 custom_executable(examples/listeners vehicle_gps_position_listener)
 custom_executable(examples/advertisers debug_vect_advertiser)
 custom_executable(examples/offboard offboard_control)
-custom_executable(PX4_SITL_missions/src droneMission)
+
 
 
 ############
