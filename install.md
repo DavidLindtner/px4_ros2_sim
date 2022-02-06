@@ -134,4 +134,15 @@ sudo pip3 install -U empy pyros-genmsg setuptools
 
 ## Build ROS 2 Workspace
 
-[link](https://docs.px4.io/master/en/ros/ros2_comm.html#build-ros-2-workspace)
+1. Clone git repository
+```bash
+git clone https://github.com/DavidLindtner/px4_ros2_sim.git
+cd px4_ros2_sim
+git submodule init
+git submodule update
+```
+2. Use the `build_ros2_workspace.bash` script to build the ROS 2 workspace (including `px4_ros_com` and `px4_msgs`).
+```bash
+cd ~/px4_ros2_sim/src/px4_ros_com/scripts
+source build_ros2_workspace.bash
+```
