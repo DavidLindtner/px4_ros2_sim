@@ -7,8 +7,8 @@ User guide for [PX4 ROS2 bridge](https://docs.px4.io/master/en/ros/ros2_comm.htm
 # ROS 2 & PX4 instalation guide
 
   * [Install Fast DDS](#install-fast-dds)
-  * [Install ROS2](#install-ros2)
-  * [Build ROS 2 Workspace](#build-ros-2-workspace)
+  * [Install ROS2](#install-ros-2-foxy)
+  * [Create & build ROS 2 workspace](#create-&-build-ros-2-workspace)
 
 ## Install Fast DDS
 
@@ -132,7 +132,7 @@ sudo apt install ros-foxy-eigen3-cmake-module
 sudo pip3 install -U empy pyros-genmsg setuptools
 ```
 
-## Build ROS 2 Workspace
+## Create & build ROS 2 workspace
 
 1. Clone git repository
 ```bash
@@ -143,6 +143,18 @@ git submodule update
 ```
 2. Use the `build_ros2_workspace.bash` script to build the ROS 2 workspace (including `px4_ros_com` and `px4_msgs`).
 ```bash
-cd ~/px4_ros2_sim/src/px4_ros_com/scripts
+cd px4_ros_com_ros2/src/px4_ros_com/scripts
 source build_ros2_workspace.bash
+```
+3. You will need to run this command on every new shell you open to have access to the ROS 2 workspace
+```bash
+source ~/px4_ros2_sim/px4_ros_com_ros2/install/setup.bash
+```
+Or put it into .bashrc
+```bash
+echo "source ~/px4_ros2_sim/px4_ros_com_ros2/install/setup.bash" >> ~/.bashrc
+```
+
+```bash
+colcon build --allow-overriding px4_missions px4_msgs px4_ros_com
 ```
