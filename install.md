@@ -2,11 +2,11 @@
 
 In order to simulate drone missions with PX4 & ROS2 you need to install
 
-  * ROS 2 Foxy
-  * PX4 firmware with Gazebo simulator
-  * Dependencies for PX4 - ROS 2 communication bridge
+  * [ROS 2 Foxy](#install-ros-2-foxy)
+  * [Dependencies for PX4 - ROS 2 communication bridge](#px4-ros-2-bridge)
+  * Prepare ROS 2 workspace
 
-## Install ROS 2 Foxy
+# Install ROS 2 Foxy
 
 1. Install ROS 2 Foxy according to [link](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html).
 
@@ -28,43 +28,20 @@ sudo apt install ros-foxy-eigen3-cmake-module
 sudo pip3 install -U empy pyros-genmsg setuptools
 ```
 
-## PX4 firmware with Gazebo simulator
-
-
-
-
-
-
-
-
-
-
-
-
-
 # PX4 ROS 2 bridge
 
 User guide for [PX4 ROS2 bridge](https://docs.px4.io/master/en/ros/ros2_comm.html)
 
-# ROS 2 & PX4 instalation guide
+Instalation consist of several steps:
 
-  * [Install Fast DDS](#install-fast-dds)
-  * [Install ROS2](#install-ros-2-foxy)
+  * [Install Java JDK](#java-jdk)
+  * [Install Gradle](#gradle)
+  * [Install Fast-RTPS-Gen](#fast-rtps-gen)
   * [Create & build ROS 2 workspace](#create-&-build-ros-2-workspace)
-
-## Install Fast DDS
-
-[Fast DDS Installation Guide](https://docs.px4.io/master/en/dev_setup/fast-dds-installation.html)
-
-> **NOTE:**
-> 
-> You do not have to install Fast DDS if you have ROS 2 Foxy (Ubuntu 20.04) installed.
-> This means you just need to install Fast-RTPS-Gen and have your ROS 2 environment sourced `(source /opt/ros/<distro>/setup.bash)` in order to be able to compile the rtps targets in the PX4-Autopilot repo.
 
 ### Java JDK
 
 To install open source java JDK
-
 ```bash
 sudo apt-get install openjdk-11-jdk
 ```
@@ -138,12 +115,12 @@ To validate that Gradle is installed properly use command:
 gradle -v
 ```
 
-### Fast-RTPS-Gen
+## Fast-RTPS-Gen
 
 
-Fast-RTPS-Gen is the Fast RTPS (DDS) IDL code generator tool. It should be installed after Fast RTPS (DDS) and made sure the fastrtpsgen application is in your PATH. You can check with which fastrtpsgen.
+Fast-RTPS-Gen is the Fast RTPS (DDS) IDL code generator tool. Make sure the fastrtpsgen application is in your PATH.
 
-Then install Fast-RTPS-Gen 1.0.4 (Gradle is required for this):
+To install Fast-RTPS-Gen 1.0.4 (Gradle is required for this) run command:
 
 ```bash
 git clone --recursive https://github.com/eProsima/Fast-DDS-Gen.git -b v1.0.4 ~/Fast-RTPS-Gen \
@@ -151,8 +128,6 @@ git clone --recursive https://github.com/eProsima/Fast-DDS-Gen.git -b v1.0.4 ~/F
     && gradle assemble \
     && sudo env "PATH=$PATH" gradle install
 ```
-
-
 
 ## Create & build ROS 2 workspace
 
@@ -176,7 +151,7 @@ Or put it into .bashrc
 ```bash
 echo "source ~/px4_ros2_sim/px4_ros_com_ros2/install/setup.bash" >> ~/.bashrc
 ```
-
+To build code run command:
 ```bash
 colcon build --allow-overriding px4_missions px4_msgs px4_ros_com
 ```
@@ -184,3 +159,8 @@ or
 ```bash
 colcon build --packages-select px4_missions
 ```
+
+
+
+
+git submodule update --init --recursive
