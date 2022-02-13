@@ -1,5 +1,47 @@
 # ROS 2 & PX4 instalation guide
 
+In order to simulate drone missions with PX4 & ROS2 you need to install
+
+  * ROS 2 Foxy
+  * PX4 firmware with Gazebo simulator
+  * Dependencies for PX4 - ROS 2 communication bridge
+
+## Install ROS 2 Foxy
+
+1. Install ROS 2 Foxy according to [link](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html).
+
+2. The install process should also install the colcon build tools, but in case that doesn't happen, you can install the tools manually:
+
+```bash
+sudo apt install python3-colcon-common-extensions
+```
+
+3. `eigen3_cmake_module` is also required, since Eigen3 is used on the transforms library:
+
+```bash
+sudo apt install ros-foxy-eigen3-cmake-module
+```
+
+1. Some Python dependencies must also be installed (using pip or apt):
+
+```bash
+sudo pip3 install -U empy pyros-genmsg setuptools
+```
+
+## PX4 firmware with Gazebo simulator
+
+
+
+
+
+
+
+
+
+
+
+
+
 # PX4 ROS 2 bridge
 
 User guide for [PX4 ROS2 bridge](https://docs.px4.io/master/en/ros/ros2_comm.html)
@@ -110,27 +152,7 @@ git clone --recursive https://github.com/eProsima/Fast-DDS-Gen.git -b v1.0.4 ~/F
     && sudo env "PATH=$PATH" gradle install
 ```
 
-## Install ROS 2 Foxy
 
-1. [Install ROS 2 Foxy](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html).
-
-2. The install process should also install the colcon build tools, but in case that doesn't happen, you can install the tools manually:
-
-```bash
-sudo apt install python3-colcon-common-extensions
-```
-
-3. ``eigen3_cmake_module`` is also required, since Eigen3 is used on the transforms library:
-
-```bash
-sudo apt install ros-foxy-eigen3-cmake-module
-```
-
-1. Some Python dependencies must also be installed (using pip or apt):
-
-```bash
-sudo pip3 install -U empy pyros-genmsg setuptools
-```
 
 ## Create & build ROS 2 workspace
 
@@ -157,4 +179,8 @@ echo "source ~/px4_ros2_sim/px4_ros_com_ros2/install/setup.bash" >> ~/.bashrc
 
 ```bash
 colcon build --allow-overriding px4_missions px4_msgs px4_ros_com
+```
+or
+```bash
+colcon build --packages-select px4_missions
 ```
