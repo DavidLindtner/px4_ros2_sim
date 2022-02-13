@@ -133,13 +133,11 @@ Fast-RTPS-Gen is the Fast RTPS (DDS) IDL code generator tool. Make sure the fast
 To install Fast-RTPS-Gen 1.0.4 (Gradle is required for this) run command:
 
 ```bash
-git clone --recursive https://github.com/eProsima/Fast-DDS-Gen.git -b v1.0.4 ~/Fast-RTPS-Gen \
-    && cd ~/Fast-RTPS-Gen \
-    && gradle assemble \
-    && sudo env "PATH=$PATH" gradle install
+cd ~/px4_ros2_sim/Fast-RTPS-Gen 
+gradle assemble && sudo env "PATH=$PATH" gradle install
 ```
 
-## Build ROS 2 workspace
+# Build ROS 2 workspace
 
 1. Use the `build_ros2_workspace.bash` script to build the ROS 2 workspace (including `px4_ros_com` and `px4_msgs`).
 ```bash
