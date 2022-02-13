@@ -2,12 +2,13 @@
 
 To run PX4 ROS2 drone mission simulation you need to install
 
-  * PX4 simulation firmware with Gazebo simulator
   * ROS2 Foxy
+  * PX4 simulation firmware with Gazebo simulator
   * PX4 - ROS 2 bridge (microRTPS agent)
 
 To run microRTPS agent
 ```bash
+source ~/px4_ros2_sim/px4_ros_com_ros2/install/setup.bash
 micrortps_agent -t UDP
 ```
 
@@ -27,5 +28,6 @@ colcon build --packages-select px4_missions
 
 To run ROS2 mission
 ```bash
+source ~/px4_ros2_sim/px4_ros_com_ros2/install/setup.bash
 ros2 run px4_missions simpleMission
 ```

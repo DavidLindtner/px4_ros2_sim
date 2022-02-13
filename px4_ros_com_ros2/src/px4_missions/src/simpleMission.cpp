@@ -1,24 +1,7 @@
 /*
-
-#include <cstdio>
-
-int main(int argc, char ** argv)
-{
-  (void) argc;
-  (void) argv;
-
-  printf("hello world px4_missions package\n");
-  return 0;
-}
-
-*/
-
-
-
-/*
  * TO PROPERLY SET OFFBOARD MODE:
  * COM_RCL_EXCEPT is set to 4
- * 
+ * https://github.com/PX4/PX4-Autopilot/issues/18957
  * 
  */
 

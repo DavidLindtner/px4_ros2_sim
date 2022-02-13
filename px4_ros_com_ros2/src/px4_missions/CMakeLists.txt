@@ -25,7 +25,10 @@ find_package(sensor_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 
 
-add_executable(simpleMission src/simpleMission.cpp)
+add_executable(simpleMission
+  src/simpleMission.cpp
+  src/drone.cpp
+  )
 
 ament_target_dependencies(simpleMission
   rclcpp
