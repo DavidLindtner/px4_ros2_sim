@@ -16,7 +16,7 @@ cd ~/px4_ros2_sim
 git submodule update --init --recursive
 ```
 
-# Install ROS 2 Foxy
+## Install ROS 2 Foxy
 
 1. Install ROS 2 Foxy according to [link](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html).
 
@@ -38,7 +38,7 @@ sudo apt install ros-foxy-eigen3-cmake-module
 sudo pip3 install -U empy pyros-genmsg setuptools
 ```
 
-# PX4 ROS 2 bridge
+## PX4 ROS 2 bridge
 
 User guide for [PX4 ROS2 bridge](https://docs.px4.io/master/en/ros/ros2_comm.html)
 
@@ -47,7 +47,6 @@ Instalation consist of several steps:
   * [Install Java JDK](#java-jdk)
   * [Install Gradle](#gradle)
   * [Install Fast-RTPS-Gen](#fast-rtps-gen)
-  * [Create & build ROS 2 workspace](#create-&-build-ros-2-workspace)
 
 ### Java JDK
 
@@ -125,8 +124,7 @@ To validate that Gradle is installed properly use command:
 gradle -v
 ```
 
-## Fast-RTPS-Gen
-
+### Fast-RTPS-Gen
 
 Fast-RTPS-Gen is the Fast RTPS (DDS) IDL code generator tool. Make sure the fastrtpsgen application is in your PATH.
 
@@ -137,7 +135,7 @@ cd ~/px4_ros2_sim/Fast-RTPS-Gen
 gradle assemble && sudo env "PATH=$PATH" gradle install
 ```
 
-# Build ROS 2 workspace
+## Build ROS 2 workspace
 
 1. Use the `build_ros2_workspace.bash` script to build the ROS 2 workspace (including `px4_ros_com` and `px4_msgs`).
 ```bash
