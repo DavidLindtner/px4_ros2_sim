@@ -1,19 +1,25 @@
-
-# Created by https://www.toptal.com/developers/gitignore/api/ros2
-# Edit at https://www.toptal.com/developers/gitignore?templates=ros2
-
 ### ROS2 ###
 install/
 log/
 build/
 
+# vscode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
 # Ignore generated documents
 *.dox
 *.wikidoc
-
-# eclipse stuff
-.project
-.cproject
 
 # qcreator stuff
 CMakeLists.txt.user
@@ -33,4 +39,3 @@ qtcreator-*
 COLCON_IGNORE
 AMENT_IGNORE
 
-# End of https://www.toptal.com/developers/gitignore/api/ros2
