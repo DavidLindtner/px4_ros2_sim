@@ -2,9 +2,19 @@
 
 In order to simulate drone missions with PX4 & ROS2 you need to install
 
+  * [Clone git repository](#clone-git-repository)
   * [ROS 2 Foxy](#install-ros-2-foxy)
   * [Dependencies for PX4 - ROS 2 communication bridge](#px4-ros-2-bridge)
-  * Prepare ROS 2 workspace
+  * [Build ROS 2 workspace](#build-ros-2-workspace)
+
+## Clone git repository
+
+To clone git repository run command:
+```bash
+git clone https://github.com/DavidLindtner/px4_ros2_sim.git
+cd ~/px4_ros2_sim
+git submodule update --init --recursive
+```
 
 # Install ROS 2 Foxy
 
@@ -129,21 +139,14 @@ git clone --recursive https://github.com/eProsima/Fast-DDS-Gen.git -b v1.0.4 ~/F
     && sudo env "PATH=$PATH" gradle install
 ```
 
-## Create & build ROS 2 workspace
+## Build ROS 2 workspace
 
-1. Clone git repository
+1. Use the `build_ros2_workspace.bash` script to build the ROS 2 workspace (including `px4_ros_com` and `px4_msgs`).
 ```bash
-git clone https://github.com/DavidLindtner/px4_ros2_sim.git
-cd px4_ros2_sim
-git submodule init
-git submodule update
-```
-2. Use the `build_ros2_workspace.bash` script to build the ROS 2 workspace (including `px4_ros_com` and `px4_msgs`).
-```bash
-cd px4_ros_com_ros2/src/px4_ros_com/scripts
+cd ~/px4_ros2_sim/px4_ros_com_ros2/src/px4_ros_com/scripts
 source build_ros2_workspace.bash
 ```
-3. You will need to run this command on every new shell you open to have access to the ROS 2 workspace
+2. You will need to run this command on every new shell you open to have access to the ROS 2 workspace
 ```bash
 source ~/px4_ros2_sim/px4_ros_com_ros2/install/setup.bash
 ```
@@ -151,11 +154,7 @@ Or put it into .bashrc
 ```bash
 echo "source ~/px4_ros2_sim/px4_ros_com_ros2/install/setup.bash" >> ~/.bashrc
 ```
-To build code run command:
-```bash
-colcon build --allow-overriding px4_missions px4_msgs px4_ros_com
-```
-or
+To build px4_missions packagerun command:
 ```bash
 colcon build --packages-select px4_missions
 ```
@@ -163,4 +162,4 @@ colcon build --packages-select px4_missions
 
 
 
-git submodule update --init --recursive
+
