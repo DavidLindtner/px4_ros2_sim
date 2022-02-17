@@ -3,6 +3,7 @@
 In order to simulate drone missions with PX4 & ROS2 you need to install
 
   * [Clone git repository](#clone-git-repository)
+  * [QGroundControl](#qgroundcontrol)
   * [ROS 2 Foxy](#install-ros-2-foxy)
   * [Dependencies for PX4 - ROS 2 communication bridge](#px4-ros-2-bridge)
   * [Build ROS 2 workspace](#build-ros-2-workspace)
@@ -15,6 +16,10 @@ git clone https://github.com/DavidLindtner/px4_ros2_sim.git
 cd ~/px4_ros2_sim
 git submodule update --init --recursive
 ```
+
+## QGroundControl
+
+Install QGroundControl according to instructions ([link](https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html))
 
 ## Install ROS 2 Foxy
 
