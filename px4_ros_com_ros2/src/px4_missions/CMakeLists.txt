@@ -24,7 +24,7 @@ find_package(nav_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 
-
+# simpleMission
 add_executable(simpleMission
   src/simpleMission.cpp
   src/drone.cpp
@@ -35,13 +35,33 @@ ament_target_dependencies(simpleMission
   px4_msgs
 )
 
-
 target_include_directories(simpleMission PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 
 install(TARGETS simpleMission
   DESTINATION lib/${PROJECT_NAME})
+
+
+# multipleMission
+add_executable(multipleMission
+  src/multipleMission.cpp
+  src/drone.cpp
+  )
+
+ament_target_dependencies(multipleMission
+  rclcpp
+  px4_msgs
+)
+
+target_include_directories(multipleMission PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+
+install(TARGETS multipleMission
+  DESTINATION lib/${PROJECT_NAME})
+
+
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

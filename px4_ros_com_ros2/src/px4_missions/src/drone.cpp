@@ -1,13 +1,15 @@
 #include "drone.hpp"
 
-Drone::Drone() : Node("drone")
+Drone::Drone(std::string vehicleName) : Node("drone")
 {
-	_offboard_control_mode_publisher = this->create_publisher<OffboardControlMode>("fmu/offboard_control_mode/in", 10);
-	_trajectory_setpoint_publisher = this->create_publisher<TrajectorySetpoint>("fmu/trajectory_setpoint/in", 10);
-	_vehicle_command_publisher = this->create_publisher<VehicleCommand>("fmu/vehicle_command/in", 10);
+	RCLCPP_INFO(this->get_logger(),  "Vehicle name: " + vehicleName);
+
+	_offboard_control_mode_publisher = this->create_publisher<OffboardControlMode>(vehicleName + "fmu/offboard_control_mode/in", 10);
+	_trajectory_setpoint_publisher = this->create_publisher<TrajectorySetpoint>(vehicleName + "fmu/trajectory_setpoint/in", 10);
+	_vehicle_command_publisher = this->create_publisher<VehicleCommand>(vehicleName + "fmu/vehicle_command/in", 10);
 
 	// get common timestamp
-	_timesync_sub = this->create_subscription<px4_msgs::msg::Timesync>("fmu/timesync/out", 10, [this](const px4_msgs::msg::Timesync::UniquePtr msg) {_timestamp.store(msg->timestamp);});
+	_timesync_sub = this->create_subscription<px4_msgs::msg::Timesync>("vhcl0/fmu/timesync/out", 10, [this](const px4_msgs::msg::Timesync::UniquePtr msg) {_timestamp.store(msg->timestamp);});
 
 	_offboard_setpoint_counter = 0;
 

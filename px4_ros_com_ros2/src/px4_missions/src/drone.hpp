@@ -19,7 +19,7 @@ using namespace px4_msgs::msg;
 class Drone : public rclcpp::Node
 {
 public:
-	Drone();
+	Drone(std::string vehicleName = "");
 
 private:
 
